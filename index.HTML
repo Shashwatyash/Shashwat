@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Proposal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji/13.1.0/twemoji.min.css" integrity="sha512-AZwK3OaWoMl8nVpiE2z+O/YUf2XQb6h6uGARzNdvxl4rC1LxumyOf0RstH2B7UqVNM/mMfHiLeTSo5YcYbRhkQ==" crossorigin="anonymous" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: #333;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 2s forwards;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #d719ec;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .options {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #e91e63;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        #noButton.moveAway {
+            animation: moveAway 1s forwards;
+        }
+
+        @keyframes moveAway {
+            to {
+                transform: translateX(500px);
+            }
+        }
+
+        #thanksMessage, #sadMessage {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        #sadMessage {
+            color: #ff5252;
+        }
+
+        .cute-illustration {
+            max-width: 80%;
+            height: auto;
+            margin-top: 50px;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Media query for small screens */
+        @media only screen and (max-width: 600px) {
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="download.png" height="500px" width="500px" style="margin-top:50px;">
+        <h2>From our boys community: ALL Boys Of Parivar</h2>
+        <h1>Will you take me on a trip with you?</h1>
+        <div class="options">
+            <button onclick="response('yes')">Yes</button>
+            <button onclick="response('no')" id="noButton">No</button>
+        </div>
+        <div id="thanksMessage">Thank you so much, girlsssss! 😊✈️</div>
+        <div id="sadMessage">😢 Don't do this, pure saal ni ghume hm LDKEEE  please YESSSS krdo "NO" NEXT OPPROTUNITY MILI HAI AB TO YESSSS KRDO.. 🚫💔</div>
+        <img src="1.jpg" alt="Cute Illustration" class="cute-illustration">
+    </div>
+    <script>
+        function response(answer) {
+            if (answer === 'no') {
+                var noButton = document.getElementById('noButton');
+                noButton.classList.add('moveAway');
+                document.getElementById('sadMessage').style.display = 'block';
+                noButton.style.display = 'none';
+            } else {
+                // Remove the content
+                document.querySelector('.options').style.display = 'none';
+                document.getElementById('thanksMessage').style.display = 'block';
+
+                // Reload the page after a delay (you can adjust the delay as needed)
+                setTimeout(function () {
+                    location.reload();
+                }, 3000); // 3000 milliseconds (3 seconds) delay
+            }
+        }
+    </script>
+</body>
+</html>
